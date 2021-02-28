@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Color Picker" content="index" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/tw.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/hex2rgb.js"></script>
+    <title>Color Picker</title>
+    <style>
+      li {
+        list-style: none;
+        display: table-cell;
+        background: #ccc;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 10px;
+        text-align: center;
+        vertical-align: middle;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="w-full p-8 bg-gray-50">
+    <header><h2 class="mb-4 text-center">Color Picker</h2></header>
+    <main>
+      <div class="w-full text-center">
+        <input
+          type="color"
+          name="in_color"
+          onchange="getColorCode(this)"
+          class="w-full h-20 mb-4 outline-none rounded-xl"
+        />
+      </div>
+      <div class="w-full text-center align-middle">
+        <div>spring</div>
+        <ul class="flex flax-row flex-wrap justify-center">
+          <li class="spring" style="background-color: #f4cdc2">#f4cdc2</li>
+          <li class="spring" style="background-color: #efbd92">#efbd92</li>
+          <li class="spring" style="background-color: #e4745c">#e4745c</li>
+          <li class="spring" style="background-color: #e07481">#e07481</li>
+          <li class="spring" style="background-color: #dd5e6b">#dd5e6b</li>
+          <li class="spring" style="background-color: #d5455a">#d5455a</li>
+          <li class="spring" style="background-color: #e9923a">#e9923a</li>
+          <li class="spring" style="background-color: #de5322">#de5322</li>
+          <li class="spring" style="background-color: #d9221b">#d9221b</li>
+          <li class="spring" style="background-color: #ebd262">#ebd262</li>
+          <li class="spring" style="background-color: #f4e158">#f4e158</li>
+          <li class="spring" style="background-color: #e5ad26">#e5ad26</li>
+          <li class="spring" style="background-color: #a5c860">#a5c860</li>
+          <li class="spring" style="background-color: #79b74c">#79b74c</li>
+          <li class="spring" style="background-color: #309e39">#309e39</li>
+          <li class="spring" style="background-color: #67b46a">#67b46a</li>
+          <li class="spring" style="background-color: #2aab7f">#2aab7f</li>
+          <li class="spring" style="background-color: #45b1a1">#45b1a1</li>
+          <li class="spring" style="background-color: #9dd1d7">#9dd1d7</li>
+          <li class="spring" style="background-color: #f4cdc2">#f4cdc2</li>
+          <li class="spring" style="background-color: #7c93b3">#7c93b3</li>
+          <li class="spring" style="background-color: #0a679d">#0a679d</li>
+          <li class="spring" style="background-color: #305088">#305088</li>
+          <li class="spring" style="background-color: #8a4788">#8a4788</li>
+          <li class="spring" style="background-color: #f8f0b7">#f8f0b7</li>
+          <li class="spring" style="background-color: #f9e9aa">#f9e9aa</li>
+          <li class="spring" style="background-color: #dccec5">#dccec5</li>
+          <li class="spring" style="background-color: #e1c589">#e1c589</li>
+          <li class="spring" style="background-color: #d6ab64">#d6ab64</li>
+          <li class="spring" style="background-color: #904d23">#904d23</li>
+        </ul>
+        <div>summer</div>
+        <ul class="flex flax-row flex-wrap justify-center">
+          <li class="summer" style="background-color: #ead1d2">#ead1d2</li>
+          <li class="summer" style="background-color: #ecafbc">#ecafbc</li>
+          <li class="summer" style="background-color: #e899bb">#e899bb</li>
+          <li class="summer" style="background-color: #e07481">#e07481</li>
+          <li class="summer" style="background-color: #d66891">#d66891</li>
+          <li class="summer" style="background-color: #b64d77">#b64d77</li>
+          <li class="summer" style="background-color: #d83b5e">#d83b5e</li>
+          <li class="summer" style="background-color: #be2838">#be2838</li>
+          <li class="summer" style="background-color: #be2838">#be2838</li>
+          <li class="summer" style="background-color: #ad2557">#ad2557</li>
+          <li class="summer" style="background-color: #c10f57">#c10f57</li>
+          <li class="summer" style="background-color: #f0ebb5">#f0ebb5</li>
+          <li class="summer" style="background-color: #a1cda8">#a1cda8</li>
+          <li class="summer" style="background-color: #63b587">#63b587</li>
+          <li class="summer" style="background-color: #109f76">#109f76</li>
+          <li class="summer" style="background-color: #d2eaf0">#d2eaf0</li>
+          <li class="summer" style="background-color: #b1d6e2">#b1d6e2</li>
+          <li class="summer" style="background-color: #70b2de">#70b2de</li>
+          <li class="summer" style="background-color: #487ba7">#487ba7</li>
+          <li class="summer" style="background-color: #3e6181">#3e6181</li>
+          <li class="summer" style="background-color: #34435c">#34435c</li>
+          <li class="summer" style="background-color: #c3bddb">#c3bddb</li>
+          <li class="summer" style="background-color: #9593b9">#9593b9</li>
+          <li class="summer" style="background-color: #8b307a">#8b307a</li>
+          <li class="summer" style="background-color: #f9f8e4">#f9f8e4</li>
+          <li class="summer" style="background-color: #f5e6c5">#f5e6c5</li>
+          <li class="summer" style="background-color: #a58265">#a58265</li>
+          <li class="summer" style="background-color: #755239">#755239</li>
+          <li class="summer" style="background-color: #96a7af">#96a7af</li>
+          <li class="summer" style="background-color: #5c6063">#5c6063</li>
+        </ul>
+        <div>autumn</div>
+        <ul class="flex flax-row flex-wrap justify-center">
+          <li class="autumn" style="background-color: #eddeb8">#eddeb8</li>
+          <li class="autumn" style="background-color: #498d37">#498d37</li>
+          <li class="autumn" style="background-color: #8c6b2a">#8c6b2a</li>
+          <li class="autumn" style="background-color: #e2983e">#e2983e</li>
+          <li class="autumn" style="background-color: #eab77e">#eab77e</li>
+          <li class="autumn" style="background-color: #c7a564">#c7a564</li>
+          <li class="autumn" style="background-color: #1c532c">#1c532c</li>
+          <li class="autumn" style="background-color: #817546">#817546</li>
+          <li class="autumn" style="background-color: #db7c29">#db7c29</li>
+          <li class="autumn" style="background-color: #d7674c">#d7674c</li>
+          <li class="autumn" style="background-color: #a37e40">#a37e40</li>
+          <li class="autumn" style="background-color: #273619">#273619</li>
+          <li class="autumn" style="background-color: #97a46d">#97a46d</li>
+          <li class="autumn" style="background-color: #d37020">#d37020</li>
+          <li class="autumn" style="background-color: #d25e38">#d25e38</li>
+          <li class="autumn" style="background-color: #61451f">#61451f</li>
+          <li class="autumn" style="background-color: #43a6a0">#43a6a0</li>
+          <li class="autumn" style="background-color: #adb450">#adb450</li>
+          <li class="autumn" style="background-color: #d0a544">#d0a544</li>
+          <li class="autumn" style="background-color: #d0432c">#d0432c</li>
+          <li class="autumn" style="background-color: #793d21">#793d21</li>
+          <li class="autumn" style="background-color: #176972">#176972</li>
+          <li class="autumn" style="background-color: #abb138">#abb138</li>
+          <li class="autumn" style="background-color: #e8ca2d">#e8ca2d</li>
+          <li class="autumn" style="background-color: #c7302b">#c7302b</li>
+          <li class="autumn" style="background-color: #352913">#352913</li>
+          <li class="autumn" style="background-color: #452d5f">#452d5f</li>
+          <li class="autumn" style="background-color: #627831">#627831</li>
+          <li class="autumn" style="background-color: #b27b1f">#b27b1f</li>
+          <li class="autumn" style="background-color: #8f1e22">#8f1e22</li>
+        </ul>
+        <div>winter</div>
+        <ul class="flex flax-row flex-wrap justify-center">
+          <li
+            class="winter"
+            style="
+              background-color: #ffffff;
+              border: 0.25px solid #ccc;
+              color: #ccc;
+            "
+          >
+            #ffffff
+          </li>
+          <li class="winter" style="background-color: #f9e0e0">#f9e0e0</li>
+          <li class="winter" style="background-color: #1797cf">#1797cf</li>
+          <li class="winter" style="background-color: #d31176">#d31176</li>
+          <li class="winter" style="background-color: #e899bb">#e899bb</li>
+          <li class="winter" style="background-color: #c9c9ca">#c9c9ca</li>
+          <li class="winter" style="background-color: #f8f6cf">#f8f6cf</li>
+          <li class="winter" style="background-color: #146fa7">#146fa7</li>
+          <li class="winter" style="background-color: #e9e683">#e9e683</li>
+          <li class="winter" style="background-color: #dc6991">#dc6991</li>
+          <li class="winter" style="background-color: #898989">#898989</li>
+          <li class="winter" style="background-color: #e9eed5">#e9eed5</li>
+          <li class="winter" style="background-color: #144493">#144493</li>
+          <li class="winter" style="background-color: #1fa258">#1fa258</li>
+          <li class="winter" style="background-color: #d7557f">#d7557f</li>
+          <li class="winter" style="background-color: #343432">#343432</li>
+          <li class="winter" style="background-color: #ddeef0">#ddeef0</li>
+          <li class="winter" style="background-color: #11337b">#11337b</li>
+          <li class="winter" style="background-color: #118b42">#118b42</li>
+          <li class="winter" style="background-color: #922a49">#922a49</li>
+          <li class="winter" style="background-color: #040000">#040000</li>
+          <li class="winter" style="background-color: #cfdfd5">#cfdfd5</li>
+          <li class="winter" style="background-color: #112a52">#112a52</li>
+          <li class="winter" style="background-color: #006939">#006939</li>
+          <li class="winter" style="background-color: #a61e2c">#a61e2c</li>
+          <li class="winter" style="background-color: #351812">#351812</li>
+          <li class="winter" style="background-color: #ded3e7">#ded3e7</li>
+          <li class="winter" style="background-color: #2f204c">#2f204c</li>
+          <li class="winter" style="background-color: #003f2e">#003f2e</li>
+          <li class="winter" style="background-color: #bb1a25">#bb1a25</li>
+        </ul>
+      </div>
+    </main>
+    <footer class="py-2"></footer>
+    <script>
+      const getColorCode = (e) => {
+        const colorCode = e.value;
+        const Ele = document.querySelectorAll("main li");
+        console.log(Ele);
+        Array.prototype.forEach.call(Ele, (item) => {
+          console.log(item.innerText);
+          if (distancecolor(e.value, item.innerText) < 30) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

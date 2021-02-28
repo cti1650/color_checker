@@ -21,3 +21,13 @@ const hex2rgb = (hex) => {
   arr["arr"] = hexArr;
   return arr;
 };
+
+const distancecolor = (hex1, hex2) => {
+  const Arr1 = hex2rgb(hex1);
+  const Arr2 = hex2rgb(hex2);
+  return Math.sqrt(
+    Math.pow(Arr2["r"] - Arr1["r"], 2) +
+      Math.pow(Arr2["g"] - Arr1["g"], 2) +
+      Math.pow(Arr2["b"] - Arr1["b"], 2)
+  );
+};
