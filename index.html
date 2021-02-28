@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Color Checker" content="index" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/tw.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/hex2rgb.js"></script>
+    <title>Color Checker</title>
+  </head>
+  <body class="p-8 text-center bg-gray-50">
+    <header><h2 class="mb-4">Color Checker</h2></header>
+    <main class="flex flax-row flex-wrap justify-center">
+      <div
+        id="item1"
+        class="bg-indigo-50 mx-4 p-5 border rounded-3xl shadow-lg"
+        style="height: 430px"
+      >
+        <input
+          type="color"
+          name="in_color"
+          onchange="getColorCode(this)"
+          class="w-36 h-28 mb-4 outline-none rounded-xl"
+        />
+        <div class="mb-4">
+          <input
+            type="text"
+            name="in_code"
+            onchange="chkColorRGB(this)"
+            class="w-40 text-center outline-none rounded-xl"
+            value="#000000"
+          />
+        </div>
+        <div>
+          <ul>
+            <li class="mb-4">
+              <b class="text-red-500 w-8 bold">R</b>
+              <input
+                type="number"
+                name="in_r"
+                class="w-36 text-center outline-none rounded-xl"
+              />
+            </li>
+            <li class="mb-4">
+              <b class="text-green-500 w-8 bold">G</b>
+              <input
+                type="number"
+                name="in_g"
+                class="w-36 text-center outline-none rounded-xl"
+              />
+            </li>
+            <li class="mb-4">
+              <b class="text-blue-500 w-8 bold">B</b>
+              <input
+                type="number"
+                name="in_b"
+                class="w-36 text-center outline-none rounded-xl"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        id="item2"
+        class="bg-indigo-50 mx-4 p-5 border rounded-3xl shadow-lg"
+        style="height: 430px"
+      >
+        <input
+          type="color"
+          name="in_color"
+          onchange="getColorCode(this)"
+          class="w-36 h-28 mb-4 outline-none rounded-xl"
+        />
+        <div class="mb-4">
+          <input
+            type="text"
+            name="in_code"
+            onchange="chkColorRGB(this)"
+            class="w-40 text-center outline-none rounded-xl"
+            value="#000000"
+          />
+        </div>
+        <div>
+          <ul>
+            <li class="mb-4">
+              <b class="text-red-500 w-8 bold">R</b>
+              <input
+                type="number"
+                name="in_r"
+                class="w-36 text-center outline-none rounded-xl"
+              />
+            </li>
+            <li class="mb-4">
+              <b class="text-green-500 w-8 bold">G</b>
+              <input
+                type="number"
+                name="in_g"
+                class="w-36 text-center outline-none rounded-xl"
+              />
+            </li>
+            <li class="mb-4">
+              <b class="text-blue-500 w-8 bold">B</b>
+              <input
+                type="number"
+                name="in_b"
+                class="w-36 text-center outline-none rounded-xl"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <b class="w-8 mr-2 bold">distance</b
+      ><input type="number" id="ans" value="0" />
+    </footer>
+    <script>
+      const getColorCode = (e) => {
+        const colorCode = e.value;
+        const parent = e.parentNode;
+        const keyEle = parent.querySelector("input[name='in_code']");
+        keyEle.value = colorCode;
+        chkColorRGB(keyEle);
+        chkColor();
+      };
+      const chkColorRGB = (e) => {
+        const colorCode = e.value;
+        console.log(colorCode);
+        const parent = e.parentNode.parentNode;
+        const rgbArr = hex2rgb(colorCode);
+        if (
+          parent.querySelector("input[name='in_color']").value !==
+          rgbArr["input"]
+        ) {
+          parent.querySelector("input[name='in_color']").value =
+            rgbArr["input"];
+        }
+        parent.querySelector("input[name='in_r']").value = rgbArr["r"];
+        parent.querySelector("input[name='in_g']").value = rgbArr["g"];
+        parent.querySelector("input[name='in_b']").value = rgbArr["b"];
+      };
+      const chkColor = (e) => {
+        const Arr1 = hex2rgb(
+          document.querySelector("div#item1 input[name='in_color']").value
+        );
+        const Arr2 = hex2rgb(
+          document.querySelector("div#item2 input[name='in_color']").value
+        );
+        document.querySelector("input#ans").value = Math.sqrt(
+          Math.pow(Arr2["r"] - Arr1["r"], 2) +
+            Math.pow(Arr2["g"] - Arr1["g"], 2) +
+            Math.pow(Arr2["b"] - Arr1["b"], 2)
+        );
+      };
+    </script>
+  </body>
+</html>
