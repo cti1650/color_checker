@@ -27,16 +27,18 @@
     <header><h2 class="mb-4 text-center">Color Picker</h2></header>
     <main>
       <div class="w-full text-center">
-        <b>色</b>
-        <input
-          type="color"
-          id="in_color"
-          onchange="getColorCode(this)"
-          class="w-full h-20 mb-4 outline-none rounded-xl"
-        />
+        <div><b>色</b></div>
+        <div class="w-full text-center">
+          <input
+            type="color"
+            id="incolor"
+            onchange="getColorCode(this)"
+            class="w-full h-24 mb-4 outline-none rounded-xl"
+          />
+        </div>
       </div>
       <div class="w-full text-center">
-        <b class="limitmax">しきい値 : 30</b>
+        <div><b class="limitmax">しきい値 : 30</b></div>
         <input
           type="range"
           id="datalimit"
@@ -212,7 +214,7 @@
       const setSliderText = (e) => {
         document.querySelector("b.limitmax").innerText =
           "しきい値 : " + e.value;
-        getColorCode(document.querySelector("input#in_color"));
+        getColorCode(document.querySelector("input#incolor"));
       };
     </script>
   </body>
