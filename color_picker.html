@@ -30,7 +30,7 @@
         <b>色</b>
         <input
           type="color"
-          name="in_color"
+          id="in_color"
           onchange="getColorCode(this)"
           class="w-full h-20 mb-4 outline-none rounded-xl"
         />
@@ -212,6 +212,7 @@
       const setSliderText = (e) => {
         document.querySelector("b.limitmax").innerText =
           "しきい値 : " + e.value;
+        getColorCode(document.querySelector("input#in_color"));
       };
     </script>
   </body>
