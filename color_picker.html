@@ -36,7 +36,7 @@
         />
       </div>
       <div class="w-full text-center">
-        <b>しきい値</b>
+        <b class="limitmax">しきい値 : 30</b>
         <input
           type="range"
           id="datalimit"
@@ -45,6 +45,7 @@
           min="1"
           max="200"
           step="1"
+          onchange="setSliderText(this)"
         />
       </div>
       <div class="w-full text-center align-middle">
@@ -207,6 +208,10 @@
             item.style.display = "none";
           }
         });
+      };
+      const setSliderText = (e) => {
+        document.querySelector("b.limitmax").innerText =
+          "しきい値 : " + e.value;
       };
     </script>
   </body>
