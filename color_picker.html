@@ -37,7 +37,7 @@
           />
         </div>
       </div>
-      <div class="w-full text-center">
+      <div class="w-full text-center content-center">
         <div><b class="limitmax">しきい値 : 30</b></div>
         <input
           type="range"
@@ -49,6 +49,15 @@
           step="1"
           onchange="setSliderText(this)"
         />
+        <!--         <canvas
+          id="canvas"
+          class="m-auto content-center"
+          width="150"
+          height="150"
+        ></canvas> -->
+        <div class="my-4 py-2 border-gray-300 border-t-4 border-b-4">
+          <b id="ans">判定結果：</b>
+        </div>
       </div>
       <div class="w-full text-center align-middle">
         <b>パーソナルカラー</b>
@@ -199,23 +208,87 @@
     <script>
       const getColorCode = (e) => {
         const colorCode = e.value;
+        const input_color = hex2rgb(colorCode);
+        document.querySelector("#ans").innerText =
+          "判定結果 : " + input_color["color_analysis"];
         const Ele = document.querySelectorAll("main li");
         const LimitValue = document.querySelector("input#datalimit").value;
-        console.log(Ele);
         Array.prototype.forEach.call(Ele, (item) => {
-          console.log(item.innerText);
+          const color = hex2rgb(item.innerText);
+          /*           console.log(
+            item.className +
+              ":" +
+              color["input"] +
+              " => " +
+              color["color_analysis"]
+          ); */
           if (distancecolor(e.value, item.innerText) < LimitValue) {
             item.style.display = "";
           } else {
             item.style.display = "none";
           }
         });
+        draw();
       };
       const setSliderText = (e) => {
         document.querySelector("b.limitmax").innerText =
           "しきい値 : " + e.value;
         getColorCode(document.querySelector("input#incolor"));
       };
+      function draw() {
+        const canvas = document.getElementById("canvas");
+        const bodySize = function () {
+          return {
+            bodyHeight: 20,
+            neckWidth: 30,
+            neckHeight: 10,
+            shoulderHeight: 20,
+            shoulderWidth: 40,
+            write: function (x, y, func) {
+              func(x, y);
+              func(x, y + this.neckHeight);
+              func(
+                x - this.shoulderWidth,
+                y + this.neckHeight + this.shoulderHeight
+              );
+              func(
+                x - this.shoulderWidth,
+                y + this.neckHeight + this.shoulderHeight + this.bodyHeight
+              );
+              func(
+                x + this.neckWidth + this.shoulderWidth,
+                y + this.neckHeight + this.shoulderHeight + this.bodyHeight
+              );
+              func(
+                x + this.neckWidth + this.shoulderWidth,
+                y + this.neckHeight + this.shoulderHeight
+              );
+              func(x + this.neckWidth, y + this.neckHeight);
+              func(x + this.neckWidth, y);
+              func(x, y);
+            },
+          };
+        };
+        if (canvas.getContext) {
+          const ctx = canvas.getContext("2d");
+          ctx.beginPath();
+          ctx.fillStyle = document.querySelector("input#incolor").value;
+          ctx.moveTo(50, 75);
+          bodySize(ctx).write(50, 75, function (x, y) {
+            ctx.lineTo(x, y);
+          });
+          ctx.fill();
+          /*           ctx.lineTo(50, 80);
+                ctx.lineTo(20, 90);
+                ctx.lineTo(20, 110);
+                ctx.lineTo(100, 110);
+                ctx.lineTo(100, 90);
+                ctx.lineTo(70, 80);
+                ctx.lineTo(50, 80);
+                ctx.lineTo(50, 75);
+                ctx.fill(); */
+        }
+      }
     </script>
   </body>
 </html>
